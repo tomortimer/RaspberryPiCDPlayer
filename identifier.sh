@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the target directory
-directory="/run/user/1000/gvfs/cdda:host=sr0"
+directory="local-cd/cdda:host=sr0"
 
 # Check if the target is not a directory
 if [ ! -d "$directory" ]; then
