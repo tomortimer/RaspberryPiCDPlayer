@@ -5,6 +5,7 @@ directory="/run/user/1000/gvfs/cdda:host=sr0"
 
 # Check if the target is not a directory
 if [ ! -d "$directory" ]; then
+  echo "not dir"
   exit 1
 fi
 
