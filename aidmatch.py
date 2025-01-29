@@ -58,8 +58,8 @@ def aidmatch(filename):
         else:
             print()
         print_('%s - %s' % (artist, title))
-        #print_('http://musicbrainz.org/recording/%s' % rid)
-        #print_('Score: %i%%' % (int(score * 100)))
+        #print_('http://musicbrainz.org/recording/%s' % rid)                                                                                                                                                                                                                                                                                                                                        
+        # print_('Score: %i%%' % (int(score * 100)))
 
 
 if __name__ == '__main__':
