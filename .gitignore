@@ -1,3 +1,7 @@
 api_key.txt
 api_secret.txt
+lastfm_pwd.txt
+lastfm_uname.txt
+currentTracklist.txt
+discord_api.txt
 cd-local/*

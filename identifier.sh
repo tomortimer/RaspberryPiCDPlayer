@@ -9,9 +9,11 @@ if [ ! -d "$directory" ]; then
   exit 1
 fi
 
+# reset tracklist
+rm currentTracklist.txt
 # Loop through files in the target directory
 for file in "$directory"/*; do
   if [ -f "$file" ]; then
-    echo "$file"
+    python3 aidmatch.py "$file" >> currentTracklist.txt
   fi
 done

@@ -42,13 +42,13 @@ def aidmatch(filename):
     try:
         results = acoustid.match(API_KEY, filename)
     except acoustid.NoBackendError:
-        print("chromaprint library/tool not found", file=sys.stderr)
+        #print("chromaprint library/tool not found", file=sys.stderr)
         sys.exit(1)
     except acoustid.FingerprintGenerationError:
-        print("fingerprint could not be calculated", file=sys.stderr)
+        #print("fingerprint could not be calculated", file=sys.stderr)
         sys.exit(1)
     except acoustid.WebServiceError as exc:
-        print("web service request failed:", exc.message, file=sys.stderr)
+        #print("web service request failed:", exc.message, file=sys.stderr)
         sys.exit(1)
 
     first = True
@@ -57,8 +57,9 @@ def aidmatch(filename):
             first = False
         else:
             print()
-        print_('%s - %s' % (artist, title))
-        #print_('http://musicbrainz.org/recording/%s' % rid)                                                                                                                                                                                                                                                                                                                                        
+        #print_('%s-%s' % (artist, title))
+        # only print musicbrainz id
+        print_(str(rid))                                                                                                                                                                                                                                                                                                                                  
         # print_('Score: %i%%' % (int(score * 100)))
 
 
