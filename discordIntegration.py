@@ -38,14 +38,17 @@ f.close()
 RPC = Presence(client_id)  # Initialize the client class
 RPC.connect() # Start the handshake loop
 current_track = None
+errorFlag = False
 startTime = time.time()
 while True:  # The presence will stay on as long as the program is running
     img = "cd-rom"
     # try and grab track from lastfm
     try:
         track = user.get_now_playing()
+        errorFlag = False
     except(pylast.WSError):
         track = current_track
+        errorFlag = True
         print("pylast error")
         time.sleep(2)
     
@@ -58,5 +61,5 @@ while True:  # The presence will stay on as long as the program is running
         img = track.get_cover_image()
         current_track = track
         RPC.update(state=str(track.get_artist()), details=str(track.get_name()), activity_type=ActivityType.LISTENING, start=startTime, instance=True, large_image=img)
-    elif track == None:
+    elif track == None and not errorFlag:
         RPC.clear()
